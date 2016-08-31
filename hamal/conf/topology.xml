@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<topology id="FROM_MYSQL_ORDER_TO_KAFKA_IDC3">
+	<logsource type="mysql">
+		<param key="dbhost" value="localhost" />
+		<param key="port" value="3306" />
+		<param key="username" value="root" />
+		<param key="password" value="root" />
+		<param key="binlog_filename" value="mysql-bin.000001" />
+		<param key="binlog_position" value="4" />
+	</logsource>
+
+	<listener name="default">
+	</listener>
+
+	<listener name="hbase">
+		<param key="hbase.zookeeper.property.clientPort" value="2181" />
+		<param key="hbase.zookeeper.quorum"
+			value="192.168.84.60,192.168.84.20,192.168.84.30,192.168.84.40,192.168.84.50" />
+		<param key="hbase.rootdir" value="hdfs://192.168.84.71:9000/hbase" />
+		<param key="hbase.cluster.distributed" value="true" />
+		<param key="target_table" value="mysql_binlog" />
+	</listener>
+
+	<listener name="kafka">
+	    <param key="consumer.count" value="5"/>
+		<param key="topic" value="MYSQL_BINLOG_XXX" />
+		<param key="metadata.broker.list" value="192.168.84.71:9092" />
+		<param key="serializer.class" value="kafka.serializer.StringEncoder" />
+		<param key="is_debug" value="true" />
+	</listener>
+</topology>

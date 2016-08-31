@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listeners>
+	<!-- <listener>
+		<version>1</version>
+		监听器名称,在此文件中必须唯一
+		<name>kafka</name>
+		监听器class所在包的名称
+		<jar>kafka-recever-1.0.0.jar</jar>
+		类全名
+		<class>com.dangdang.event.listener.KafkaRecever</class>
+	</listener> -->
+
+ 	<listener>
+		<version>1</version>
+		监听器名称,在此文件中必须唯一
+		<name>default</name>
+		监听器class所在包的名称
+		<jar>dangdang-listener-1.0.0.jar</jar>
+		类全名
+		<class>com.dangdang.hamal.event.listener.DefaultListener</class>
+	</listener>  
+<!-- 	<listener>
+		<version>1</version>
+		监听器名称,在此文件中必须唯一
+		<name>hbase</name>
+		监听器class所在包的名称
+		<jar>dangdang-listener-1.0.0.jar</jar>
+		类全名
+		<class>com.dangdang.mysql.binlog.event.listener.HBaseListener</class>
+	</listener> -->
+	
+	<listener>
+		<version>1</version>
+		<!-- 监听器名称,在此文件中必须唯一 -->
+		<name>kafka</name>
+		<!-- 监听器class所在包的名称 -->
+		<jar>dangdang-listener-1.0.0.jar</jar>
+		<!-- 类全名 -->
+		<class>com.dangdang.hamal.event.listener.KafkaEventConsumerListener</class>
+	</listener>
+	
+</listeners>
